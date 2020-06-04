@@ -24,9 +24,9 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-       /* try {
+        try {
             $body = $request->validate([
-                'name' => 'string',
+                'name' => 'required|string',
                 'surname' => 'string',
                 'nick' => 'string',
                 'email' => 'required|string|email',
@@ -39,11 +39,7 @@ class UserController extends Controller
             return response($user, 201);
         } catch (\Exception $e) {
             return response($e, 500);
-        }*/
-        $body = $request->all();
-            $body['password'] = Hash::make($body['password']);
-            $user = User::create($body);
-            return response($user, 201);
+        }
     }
 
     public function login(Request $request)
