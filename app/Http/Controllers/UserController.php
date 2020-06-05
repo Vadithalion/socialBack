@@ -51,9 +51,6 @@ class UserController extends Controller
             ]);
             if (!Auth::attempt($credentials)) {
                 return response(['message' => 'Wrong Credentials'], 400);
-                //  return res.status(400).send({
-                //     message:'Wrong Credentials'
-                // })
             }
             $user = Auth::user(); //req.user, $request->user()
             $token = $user->createToken('authToken')->accessToken;
