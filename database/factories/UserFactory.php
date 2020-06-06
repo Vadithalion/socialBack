@@ -13,6 +13,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email'=>$faker->email,
         'password'=>$faker->password,
         'role'=>$faker->word,
-        'status'=>$faker->word
+        'status'=>$faker->word,
+        'image' =>$faker->imageUrl
         ];
 });

@@ -32,7 +32,8 @@ class UserController extends Controller
                 'email' => 'required|string|email',
                 'password' => 'required|string|min:8',
                 'role' => 'string',
-                'status' => 'string'
+                'status' => 'string',
+                'image' => 'string'
             ]);
             $body['password'] = Hash::make($body['password']);
             $user = User::create($body);
