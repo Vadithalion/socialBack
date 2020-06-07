@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('users', 'UserController');
 Route::post('register','UserController@register');
 Route::post('login','UserController@login');
-Route::post('newPubli','PublicationController@newPublication');
+
+Route::apiResource('publications','PublicationController');
+Route::post('newpubli','PublicationController@newPublication');
 
 //Route::get('user/name/{id}', 'UserController@nameFollower');
