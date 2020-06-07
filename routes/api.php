@@ -23,6 +23,6 @@ Route::post('register','UserController@register');
 Route::post('login','UserController@login');
 
 Route::apiResource('publications','PublicationController');
-Route::post('newpubli','PublicationController@newPublication');
+Route::post('newpublication','PublicationController@newPublication');
 
 //Route::get('user/name/{id}', 'UserController@nameFollower');
