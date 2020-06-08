@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\LikesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +24,24 @@ Route::apiResource('users', 'UserController');
 Route::post('register','UserController@register');
 Route::post('login','UserController@login');
 
-Route::apiResource('publications','PublicationController');
-Route::post('newpublication','PublicationController@newPublication');
+Route::prefix('publication')->group(function () {
+    Route::get('getall','PublicationController@getPublication');
+    
+    Route::middleware(['auth:api'])->group(function () {
+        Route::post('newpublication','PublicationController@newPublication');
+        });
+});
 
-Route::post('likeplus', 'LikesController@insertLike')
+Route::prefix('likes')->group(function () {
+    Route::get('getAll', 'LikesController@getLikesAll');
+
+    Route::middleware(['auth:api'])->group(function () {
+
+        Route::post('add', 'LikesController@addLike');
+        Route::delete('subtrac/{id}', 'LikesController@subtractLike');
+        });
+
+});
+
 
 //Route::get('user/name/{id}', 'UserController@nameFollower');

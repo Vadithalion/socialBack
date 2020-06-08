@@ -37,6 +37,8 @@ class CreateUsersTable extends Migration
             $table->foreign('follower_id')->references('id')->on('users');
             $table->foreign('followed_id')->references('id')->on('users');
         });
+
+        
     }
 
     /**

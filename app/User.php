@@ -62,5 +62,4 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Publication', 'likes');
     }
-    
 }

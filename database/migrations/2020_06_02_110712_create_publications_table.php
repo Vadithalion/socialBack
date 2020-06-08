@@ -17,7 +17,11 @@ class CreatePublicationsTable extends Migration
             $table->id();
             $table->text('text');
             $table->string('file', 200);
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
 
         Schema::create('likes', function(Blueprint $table){
