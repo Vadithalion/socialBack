@@ -25,4 +25,6 @@ Route::post('login','UserController@login');
 Route::apiResource('publications','PublicationController');
 Route::post('newpublication','PublicationController@newPublication');
 
+Route::post('likeplus', 'LikesController@insertLike')
+
 //Route::get('user/name/{id}', 'UserController@nameFollower');
