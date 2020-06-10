@@ -56,12 +56,12 @@ public function register(Request $request)
 
 * Siguiente paso, loguear el usuario y conseguir el token (cortesia de la libreria Passport en Laravel)
 
-![image](./assets/login.jpg)
+![image](./assets/login.JPG)
 
 
 * Para publicar y manipular, necesitaremos estar autenticados
 
-![image](./assets/token.jpg)
+![image](./assets/token.JPG)
 
 * Tras dar follow, tendremos acceso a la visualizacion en nuestro timeline de las publicaciones de los usuarios seguidos.
 
@@ -82,11 +82,11 @@ Schema::create('follows', function(Blueprint $table){
 
 * A continuacion, ejemplo de like en una publicación
 
-![image](./assets/likes.jpg)
+![image](./assets/likes.JPG)
 
 * Diseño lógico de la base de datos utilizada.
 
-![image](./assets/bbdd.jpg)
+![image](./assets/bbdd.JPG)
 
 
 
