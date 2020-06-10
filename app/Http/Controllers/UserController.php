@@ -22,6 +22,19 @@ class UserController extends Controller
         }
     }
 
+    public function getUserById($id)
+    {
+        $user = User::find($id);
+        return $user;
+    }
+
+    public function createFollower(Request $request)
+    {
+        $body = $request->all(); 
+        $follower = User::create($body);
+        return $follower;  
+    }
+
     public function register(Request $request)
     {
         try {

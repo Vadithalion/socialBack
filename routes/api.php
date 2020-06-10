@@ -20,9 +20,14 @@ use Illuminate\Support\Facades\Auth;
 //    return $request->user();
 //});
 
-Route::apiResource('users', 'UserController');
-Route::post('register','UserController@register');
-Route::post('login','UserController@login');
+Route::prefix('user')->group(function () {
+
+    Route::apiResource('users', 'UserController');
+    Route::get('userid/{id}', 'UserController@getUserById');
+    Route::post('register','UserController@register');
+    Route::post('login','UserController@login');
+    Route::post('addfollow', 'UserController@createFollower');
+});
 
 Route::prefix('publication')->group(function () {
     Route::get('getall','PublicationController@getPublication');
