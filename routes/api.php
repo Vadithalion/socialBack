@@ -31,6 +31,8 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('publication')->group(function () {
     Route::get('getall','PublicationController@getPublication');
+    Route::get('/orderDes', 'PublicationController@orderPostDesc');
+    Route::delete('/{id}', 'PublicationController@destroy');
     
     Route::middleware(['auth:api'])->group(function () {
         Route::post('newpublication','PublicationController@newPublication');

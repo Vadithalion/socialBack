@@ -33,14 +33,28 @@ class PublicationController extends Controller
         $body['user_id'] = Auth::id();
         return Publication::create($body);
     }
-/*
-    public function getPublication(){
-        $publications = Publication::all();
-        return $publications;
+
+    public function destroy($id){
+        $post = Publication::find($id);
+        if (Auth::id() !== $post->user_id){
+            return response([
+                'message' => 'Wrong Credentials'
+            ], 400);
+        }
+        $post->delete();
+        return response([
+            'message' => 'Borrado correctamente'
+        ], 200);
     }
-*/
+
     public function getPublication(){
         $publications = Publication::with('likes')->get();
         return $publications;
+    }
+
+    public function orderPostDesc()
+    {           
+        $filter = Publication::orderBy('id', 'DESC')->get();                                      
+        return $filter;
     }
 }
