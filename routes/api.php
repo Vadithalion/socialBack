@@ -26,13 +26,13 @@ Route::prefix('user')->group(function () {
     Route::get('userid/{id}', 'UserController@getUserById');
     Route::post('register','UserController@register');
     Route::post('login','UserController@login');
-    Route::post('addfollow', 'UserController@createFollower');
+    Route::post('addfollow', 'UserController@addfollow');
 });
 
 Route::prefix('publication')->group(function () {
     Route::get('getall','PublicationController@getPublication');
     Route::get('/orderDes', 'PublicationController@orderPostDesc');
-    Route::delete('/{id}', 'PublicationController@destroy');
+    Route::delete('/delete/{id}', 'PublicationController@destroy');
     
     Route::middleware(['auth:api'])->group(function () {
         Route::post('newpublication','PublicationController@newPublication');

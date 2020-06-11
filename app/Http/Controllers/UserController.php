@@ -28,7 +28,7 @@ class UserController extends Controller
         return $user;
     }
 
-    public function createFollower(Request $request)
+    public function addFollow(Request $request)
     {
         $body = $request->all(); 
         $follower = User::create($body);
