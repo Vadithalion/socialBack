@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Publication;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 //use App\User
@@ -25,6 +26,12 @@ class PublicationController extends Controller
         {
             return Publication::all();
         }
+    }
+
+    public function getPubliById($id)
+    {
+        $user = Publication::find($id)->load('user');
+        return $user;
     }
 
 
@@ -56,5 +63,14 @@ class PublicationController extends Controller
     {           
         $filter = Publication::orderBy('id', 'DESC')->get();                                      
         return $filter;
+    }
+
+    public function getPubliByUser($id){
+        $posts = Publication::where('user_id', $id)->get();
+
+        return response()->json([
+            'status' => 'success',
+            'posts' => $posts
+        ], 200);
     }
 }

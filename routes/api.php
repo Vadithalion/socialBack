@@ -30,6 +30,8 @@ Route::prefix('user')->group(function () {
 });
 
 Route::prefix('publication')->group(function () {
+    Route::get('getById/{id}','PublicationController@getPubliById');
+    Route::get('getByUser/{id}','PublicationController@getPubliByUser');
     Route::get('getall','PublicationController@getPublication');
     Route::get('/orderDes', 'PublicationController@orderPostDesc');
     Route::delete('/delete/{id}', 'PublicationController@destroy');
